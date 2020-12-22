@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIKI｜註冊</title>
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1><a href="/" title="回首頁">註冊帳戶</a></h1>
+        {% for message in messages %}
+        <div class="message"><p>{{ message }}</p></div>
+        {% endfor %}
+        <hr>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <label for="user_id"><b>名稱</b></label>
+            <input id="user_id" type="text" name="user_id" placeholder="輸入Username" required>
+            <label for="user_email"><b>電子郵件</b></label>
+            <input id="user_email" type="email" name="user_email" placeholder="輸入Email，例如:abc@gmail.com" required>
+            <label for="user_pass"><b>密碼</b></label>
+            <input id="user_pass" type="password" name="user_pass" placeholder="輸入password(必須包含8個或更多字符)" pattern="[a-zA-z0-9].{8,}" required>
+            <label for="user_phone"><b>電話</b></label>
+            <input id="user_phone" type="tel" name="user_phone" placeholder="輸入電話(09xxxxxxxx)" required pattern="[0][9][0-9]{8}">
+            <label for="user_birth"><b>生日</b></label><br>
+            <input id="user_birth" type="date" name="user_birth" required><br>
+            <label for="user_sex"><b>性別</b></label><br>
+            <input id="user_sex" type="radio" name="user_sex" value="男" checked>男
+            <input id="user_sex" type="radio"  name="user_sex" value="女">女
+            <hr>
+            <button type="submit" class="registerbtn">註冊</button>
+        </form>
+    </div>
+    <div class="container signin">
+        <b>註冊完請 <a href="/login/">登入</a>！</b>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wiki</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+    <header>
+        <h1>WIKI</h1>
+    </header>
+    {% if username %}
+    <nav>
+        <p><b>歡迎：{{username}}</b></p>
+        <a href="logout/" class="right">登出</a>
+        <a href="admin/">管理員區</a>
+    </nav>
+    <main>
+        
+    </main>
+    {% else %}
+    <nav>
+        <a href="login/" class="right"">登入｜註冊</a>
+        <a href="admin/">管理員區</a>
+    </nav>
+
+    {% endif %}
+    
+    
+</body>
+</html>

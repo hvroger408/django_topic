@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>{% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入</title>
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+</head>
+<body>
+    <h1><a href="/" title="回首頁">登入</a></h1>
+    {% for message in messages %}
+    <div class="message">
+        <p> {{ message }} </p>
+    </div>
+    {% endfor %}
+    <form action="#" method="POST" class="container">
+        {% csrf_token %}
+            <table>
+                {{login_form.as_table}}
+            </table>
+            <input type="submit" value="登入">
+            <button type="submit" onclick="location.href='/register/'">註冊</button>
+            
+    </form>
+    
+</body>
+</html>
